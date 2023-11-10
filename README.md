@@ -1,4 +1,4 @@
-# Xmas Woman Code Page
+# Charity & Code for Women* Page
 
 ## Running the project
 
@@ -33,16 +33,15 @@ The application has a top navigation that allows the user to navigate to:
 
 ## Made by.
 
-This page was made by Gimena, designed by Klaus and spelling review by Jan.
+This page was forked from Gimena's 2022 Cgristmas Coding Workshop repository.
 
-For the load of md files, it was following the tutorial of Brad Traversy.
+For the load of md files, the tutorial of Brad Traversy was followed.
 
 ## Preview
 
 ### Main Page
 
-![Main Page](public/readme/main_page.gif)
 
 ### Useful Links & Theoretical Material
 
-![Useful Links](public/readme/useful_links.gif)
+
