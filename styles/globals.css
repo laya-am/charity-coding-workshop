@@ -60,14 +60,12 @@ Header
 .header {
     width: 100%;
     height: 30px;
-    padding: 40px 40px 0 40px;
+    /* padding: 40px 40px 0 40px; */
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: var(--color-green);
-    top: 0;
-    z-index: 2;
-    box-shadow: 0 0 50px 80px var(--color-green);
+    background-color: gray;
+    box-shadow: 0 0 60px 70px gray;
     font-family: "Ovo", serif;
 }
 

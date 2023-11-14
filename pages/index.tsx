@@ -19,12 +19,6 @@ const coachArray = [
         description:
             "Originally from Iran, Laya is a Web Development Coach at SPICED Academy. After working as a language teacher for years, she moved to Berlin 1.5 years ago and enrolled at SPICED Academy's Full Stack Web Development bootcamp to discover new life/career paths. She loves cooking, cycling, and learning languages."
     },
-    // {
-    //     name: "Jan",
-    //     img: "/img/coaches/jan.png",
-    //     description:
-    //         "is a Web Development Coach from Spiced Berlin. He worked as a Software Engineer for 10 years after playing Poker professionally. He is german and loves dogs and coding.",
-    // },
 ];
 
 interface HomeProps {
@@ -70,7 +64,7 @@ export default function Home(props: HomeProps) {
                             scroll={false}
                             className="navOption"
                         >
-                            Coaches
+                            Coach
                         </Link>
                         <Link
                             href={"#links-section"}
@@ -143,7 +137,8 @@ export default function Home(props: HomeProps) {
                             </p>
                         </Link>
                         <Link
-                            href="https://xmas-coding-2022.vercel.app "
+                            href=""
+                            // href="https://xmas-coding-2022.vercel.app "
                             target="_blank"
                             className={styles.card}
                         >

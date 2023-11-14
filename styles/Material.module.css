@@ -6,7 +6,7 @@
     background-position: center;
     min-height: 96vh;
     width: 100vw;
-
+    color: var(--color-white-whip);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -16,13 +16,14 @@
     text-align: center;
     top: 10px;
     font-family: "Ovo", serif;
+    padding: 150px 0 150px 0;
 }
 
 .subjectContainer {
 
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
+    gap: 80px;
     margin-top: 70px;
     margin-bottom: 20px;
 }
