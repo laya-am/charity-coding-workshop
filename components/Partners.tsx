@@ -9,7 +9,7 @@ interface PartnersProps {
 
 export default function Partners(props: PartnersProps) {
     // console.log("Props in Partners: ", props);
-    let website: string;
+    let website !: string;
     
     if (props.file.includes("neuefische")){
         website= "https://www.neuefische.de/en"

@@ -7,7 +7,7 @@ import styles from "../styles/SubjectCard.module.css";
 
 export default function SubjectCard(props: SubjectInfo) {
     return (
-        <div className={styles.card}>
+        <div className={styles.subject}>
             <Image
                 src={props.frontMatter.cover_images}
                 alt={props.slug}

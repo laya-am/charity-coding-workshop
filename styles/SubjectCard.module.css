@@ -1,3 +1,11 @@
+
+.subject{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
+
 .cardSection {
     /* background-image: url("/img/home/xmas.jpeg") no-repeat 1 100%; */
     background-repeat: no-repeat;
