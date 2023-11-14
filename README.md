@@ -12,7 +12,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ## Overview
 
-This page was created with the purpose of presenting the information required for the event Xmas Women Code.
+This page was created with the purpose of presenting the information required for the workshop Charity & Code for FLINTA community.
 
 [Charity Coding for FLINTA](https://charity-coding.vercel.app/)
 
