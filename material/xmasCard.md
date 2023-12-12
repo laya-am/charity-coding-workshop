@@ -1,23 +1,23 @@
 ---
-title: "X-mas Card"
+title: "Holiday Card"
 date: "December 2022"
-excerpt: "Steps to build your own Xmas card"
+excerpt: "Steps to build your own Holiday Card"
 cover_images: "/img/material/card.png"
 ---
 
-# Steps to create you own X-mas Card
+# Steps to create you own Holiday Card
 
-To build your own card we are going to start with the template code. To access it go to home -> Material -> Xmas Card.
+To build your own card we are going to start with the template code. To access it go to home -> Material -> Holiday Card.
 This will open a new window / tab.
 
-# Code Structure.
+# Code Structure
 
 ```
 .
 ├── README.md
 ├── css // all our stylings go in this folder
 │   └── style.css // preferably this file
-├── images // the images we're going to pick from unless you want to upload your own. That image should also go here.
+├── images // the images we're going to pick from.
 │   ├── bokeh-ornament.jpg
 │   ├── bokeh-tree.jpg
 │   ├── candy-cane.jpg
@@ -42,7 +42,7 @@ This will open a new window / tab.
 └── .there-be-dragons
 ```
 
-# Design our card.
+# Design our card
 
 We want our card to have:
 
@@ -78,9 +78,9 @@ Up until now your code should look like this:
 
 Nothing should change because we haven't imported the premade classes.
 
-# Adding some elements.
+# Adding some elements
 
-## Front section.
+## Front section
 
 In here we want to add a title. Lets do it as an `h1` tag.
 
@@ -92,7 +92,7 @@ Example:
 </section>
 ```
 
-## Back section.
+## Back section
 
 In here we want to write a message. This one we can for example divide in three parts.
 
@@ -117,7 +117,7 @@ Example:
 
 ## Styling our front and back elements.
 
-The simplest way to style different parts of the page is adding a class to each element or styling by section.
+-   The simplest way to style different parts of the page is adding a class to each element or styling by section.
 
 Example:
 
@@ -152,7 +152,7 @@ Example:
 </main>
 ```
 
--   In our Css
+-   In our CSS
 
 ```css
 .headline {
@@ -161,7 +161,7 @@ Example:
 }
 ```
 
-### Importing an css file.
+### Importing a CSS file
 
 To add the predefined classes we need to import the file where these classes are defined.
 This should be our first line in our CSS file.
@@ -196,7 +196,7 @@ createCardFlip();
 Now lets see our card. Let's click in it and see how it flips.
 Now we are able to see the back!
 
-## Adding a nice image.
+## Adding a nice image
 
 If we want to add an image in the front we need to use the tag `<img>`. This tag requires a `src`, this is the name of the file and where it is located.
 Another attribute that is required is the `alt` for accessibility!, this is the description of the image that is used for screen readers.

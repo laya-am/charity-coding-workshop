@@ -8,11 +8,12 @@ import Logo from "../components/Logo";
 import Link from "next/link";
 import Head from "next/head";
 
-export default function material(props: MaterialProps) {
-    // console.log(props);
+export default function material({subjects}: MaterialProps) {
+    // to put html before css:
+    subjects = [subjects[1], subjects[0], subjects[2]]
 
     return (
-        <>
+        <> 
             <Head>
                 <script
                     defer
@@ -33,7 +34,7 @@ export default function material(props: MaterialProps) {
                 </header>
                 <section className={styles.materialSection}>
                     <div className={styles.subjectContainer}>
-                        {props.subjects.map((subject, index) => {
+                        {subjects.map((subject, index) => {
                             return <SubjectCard {...subject} key={index} />;
                         })}
                     </div>

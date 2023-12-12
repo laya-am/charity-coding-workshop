@@ -126,24 +126,23 @@ export default function Home(props: HomeProps) {
                         </Link>
 
                         <Link
-                            href="https://codesandbox.io/s/xmas-coding-2022-qtido4"
+                            href="https://codesandbox.io/p/sandbox/holiday-card-xndxhq"
                             target="_blank"
                             className={styles.card}
                         >
-                            <h2>Christmas Card &rarr;</h2>
+                            <h2>Holiday Card &rarr;</h2>
                             <p>
                                 Here you will find the initial code to make your
                                 own Card!
                             </p>
                         </Link>
                         <Link
-                            href=""
-                            // href="https://xmas-coding-2022.vercel.app "
+                             href={`/subject/xmasCard`}
                             target="_blank"
                             className={styles.card}
                         >
-                            <h2>Christmas Card Board &rarr;</h2>
-                            <p>Upload your card and see all the other cards.</p>
+                            <h2>Holiday Card Guide &rarr;</h2>
+                            <p>Steps to build your own Holiday Card</p>
                         </Link>
 
                         <Link
