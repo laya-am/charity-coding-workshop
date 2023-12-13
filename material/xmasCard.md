@@ -5,19 +5,17 @@ excerpt: "Steps to build your own Holiday Card"
 cover_images: "/img/material/card.png"
 ---
 
-# Steps to create you own Holiday Card
+# Holiday Coding Handout
 
-To build your own card we are going to start with the template code. To access it go to home -> Material -> Holiday Card.
-This will open a new window / tab.
 
-# Code Structure
+Starting off with the blank project, let's take a short look at the structure and what we're about to build.
 
 ```
 .
-├── README.md
+├── README.md // you're here
 ├── css // all our stylings go in this folder
-│   └── style.css // preferably this file
-├── images // the images we're going to pick from.
+│   └── style.css // preferrably this file
+├── images // the images we're going to pick from, unless you want to upload your own. that image should also go here.
 │   ├── bokeh-ornament.jpg
 │   ├── bokeh-tree.jpg
 │   ├── candy-cane.jpg
@@ -34,238 +32,181 @@ This will open a new window / tab.
 │   └── white-tree-decorations.jpg
 ├── index.html // our landing page
 ├── js // everything that gives our page interactivity
-│   └── script.js // this file will import some functions
+│   └── script.js // this file will import some functions and
 │   // ignore all of these
 ├── package-lock.json
 ├── package.json
 ├── sandbox.config.json
-└── .there-be-dragons
+└── lib // backstage area
 ```
 
-# Design our card
+## Semantic HTML 
 
-We want our card to have:
 
-1. Front: This is where we are going to put a photo
-2. Back: This is where we will write our whishes
+Write the base structure we'll need for the rest of the tasks:
 
-![Semantics](../img/material/cardExample.png)
-
-We have three classes predefined:
-
--   `.card`
--   `.front`
--   `.back`
-
-So we will want our main tag to have the class `.card`. Then inside of it we will want 2 different sections, one with the class `.front` and the other `.back`.
-
-The section with the class `.front` is going to be our front so inside this section we should add what we want to be in the front of our card. Some title and an image.
-
-The section with the class `.back` is going to be the back of our card. Here we want to put some nice text for our loved ones.
-
-Up until now your code should look like this:
-
-```html
-<main class="card">
-    <section class="front">
-        <!-- Inside here we want to add our front of the card  -->
-    </section>
-    <section class="back">
-        <!-- Inside here we want to add our back of the card. -->
-    </section>
-</main>
 ```
-
-Nothing should change because we haven't imported the premade classes.
-
-# Adding some elements
-
-## Front section
-
-In here we want to add a title. Lets do it as an `h1` tag.
-
-Example:
-
-```html
-<section class="front">
+<main>
+  <section>
     <h1>Happy Holidays!</h1>
-</section>
-```
-
-## Back section
-
-In here we want to write a message. This one we can for example divide in three parts.
-
-1. The greeting
-2. The content
-3. The closing remarks and signature.
-
-We want the greeting to have more importance than the context so for this we can use an `h2` tag whereas for the content and closing we can use a p tag.
-
-Example:
-
-```html
-<section class="back">
-    <h2>Dear Mary</h2>
-    <p>
-        Wishing you love, light, and laughter for Christmas and the New Year
-        too!
-    </p>
-    <p>Cheers, XOXO</p>
-</section>
-```
-
-## Styling our front and back elements.
-
--   The simplest way to style different parts of the page is adding a class to each element or styling by section.
-
-Example:
-
-### By section / block
-
--   We are not adding any more classes to the elements, we are going to add a property to the element that contains what we want to style. Be aware that ALL elements in this block will change.
-
-```css
-.card {
-    font-family: "Caveat";
-}
-```
-
-### Adding new classes to each element
-
--   In our HTML
-
-```html
-<main class="card">
-    <section class="front">
-        <h1 class="headline">Happy Holidays!</h1>
-    </section>
-    <section class="back">
-        <
-        <h2>Dear Mary</h2>
+    <h2>Dear friend</h2>
         <p>
-            Wishing you love, light, and laughter for Christmas and the New Year
-            too!
+          Wishing you love, light, and laughter for Christmas and the New Year
+          too!
         </p>
         <p>Cheers, XOXO</p>
-    </section>
+  </section>
 </main>
 ```
 
--   In our CSS
+## style fonts with own classes
 
-```css
-.headline {
+Recommended stylings are:
+
+- `<h1>` with
+  ```
+  .headline {
     font-family: "Mountains of Christmas";
     color: maroon;
-}
+    text-shadow: 5px 4px black;
+  }
+  ```
+- either specific classes setting the `font-family` for text elements,
+- OR let the styles cascade
+  ```
+  .card {
+    font-family: "Caveat";
+    background-color: whitesmoke;
+  }
+  
+  .back{
+    background-color: whitesmoke;
+  }
+  ```
+
+## Split our card into two sections
+
+We need the predefined classes `.card`, `.front` and `.back` to be added to their respective tags in order to apply the global styles:
+
+
+- `.card` gives padding and is what will be flipped
+- `.font` creates a default background color, stays in place absolutely positioned within `.card`
+- `.back` gets rotated and flipped to the back
+
+So first import the global styles in the style.css file:
+`@import url("/lib/global.css");`
+
+And then add the classes to HTML file:
+```
+<main class="card">
+  <section class="front">
+    <h1>Happy Holidays!</h1>
+  </section> 
+  <section class="back">
+    <h2>Dear friend</h2>
+        <p>
+          Wishing you love, light, and laughter for Christmas and the New Year
+          too!
+        </p>
+        <p>Cheers, XOXO</p>
+  </section>
+</main>
 ```
 
-### Importing a CSS file
+> 💡 This _hides_ the back of the card. this might be surprising at first, after all the work we did, but is what we want.
 
-To add the predefined classes we need to import the file where these classes are defined.
-This should be our first line in our CSS file.
+## Import `createCardFlip` in `js/script.js`
 
-```css
-@import url("/.there-be-dragons/global.css");
+### Explainer and Coding
+
+When we click around we see that nothing happens, which is why we're going to add JavaScript to our page for interactivity.
+
+To use the prepared functionality we brought with us, let's import a function in our `js/script.js`.
+Let's edit the first line with import to look like the example below.
+
 ```
+import { createCardFlip } from "/lib/sketch.js";
 
-Now we don't see any more the back of our card but that is what we want.
-
-## Adding funtionality
-
-Now we see the front of our card but when we click nothing happens.
-The functionality of the `click` needs to be added in a JavaScript file.
-Because this requires more knowledge we pre define that function. All we need to do is to import it and execute it.
-
-### Steps:
-
-1. Let's go to our `script.js` in js folder
-2. We must import the function so we can use it. From where? From the file `sketch.js`
-
-```js
-import { createCardFlip } from "/.there-be-dragons/sketch.js";
-```
-
-3. We must invoque the function so this runs.
-
-```js
 createCardFlip();
 ```
 
-Now lets see our card. Let's click in it and see how it flips.
-Now we are able to see the back!
+Note that the name we imported is being used in a line below the import. We also added `()`-brackets to the name, to tell our browser to _run_ that function we just imported.
 
-## Adding a nice image
+Try clicking around again. We should now see that our card flips.
 
-If we want to add an image in the front we need to use the tag `<img>`. This tag requires a `src`, this is the name of the file and where it is located.
-Another attribute that is required is the `alt` for accessibility!, this is the description of the image that is used for screen readers.
+## Add static image from `/images`
 
-Because we want the image to cover our front, we prepare one class `.postcardimage` that we should add to our image.
+Now we're going to add a background image to our card.
 
-Our code should look like this:
+To do so, let's go to the the end of the `.front` section in our `index.html`. Add a new `<img />` tag and use one of the prepared images from the `/images` folder.
 
-```html
+Your code should look something like this:
+```
 <img
-    class="postcardimage"
-    src="/images/christmas-lights.jpg"
-    alt="christmas postcard image"
+  class="postcardimage"
+  src="/images/christmas-lights.jpg"
+  alt=""
 />
 ```
 
-Now our front has a background Image.
-Our headline doesn't look good yet, so let's style it some more.
+> 💡 the `img` should be at the end of the `.front` section. The order of elements is important!
 
-Let's create a new class in our CSS.
+We add our `class` attribute to include the predefined styles prepared. `src` is the file path where we placed our image. `alt` is a description of the image.
 
-```css
-.contrasted {
-    text-shadow: 5px 4px black;
-}
+You should now see an image on your postcard. Depending on the image you picked, the headline might be hard to read. To fix that, this is a good chance to update the color and shadow of the `.headline`.
+
+## Import `createSnowfall` in `js/script.js`
+
+Add `<div class="snowfall"></div>` to the end of `.front`. this does not show anything until the `createSnowfall` function is called.
+
+That function needs to be imported, like we did with `createCardFlip` before. Let's edit `js/script.js` another import and call the function.
+
+Your finished code should look something like this:
+
+```
+import { createCardFlip, createSnowfall } from "/lib/sketch.js";
+
+createCardFlip()
+createSnowfall()
 ```
 
-Now let's add this class to our headline too. How do we do this? In our HTML where we added the class `headline`, we add a space and add `contrasted`.
+## We're done! 🥳
+### But are we? Let's keep styling!
 
-Your code should look like:
+you can add or change any styles in your CSS you want. keep in mind, that the order of your _rules_ is important! the last one wins. 
+that is why we want to use single `.class` selectors and only write them in order after our `@import` of the prepared global styles.
 
-```html
-<section class="front">
-    <h1 class="headline contrasted">Happy Christmas!</h1>
-    <img
-        class="postcardimage"
-        src="/images/christmas-lights.jpg"
-        alt="christmas tree"
-    />
-</section>
-```
+- change colors
+- change images
+  - upload own images to codesandbox
+  - use random url `https://source.unsplash.com/random?christmas`
+- change text shadow
+- update texts, add more paragraphs
 
-You can also add this style to headline instead of creating a new class.
+# Credits
 
-## Adding snow
+## Used Libraries
 
-To add the animation of the falling snow we need to:
+- p5.js - https://p5js.org/
 
-1. Create a new HTML element in the end of our font section. This should have the class `snowfall`
+## Images
 
-```html
-<section class="front">
-    <h1 class="headline contrasted">Happy Christmas!</h1>
-    <img
-        class="postcardimage"
-        src="/images/christmas-lights.jpg"
-        alt="christmas tree"
-    />
-    <div class="snowfall"></div>
-</section>
-```
+- mouse-in-socks.jpg - Photo by <a href="https://unsplash.com/@anniespratt?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Annie Spratt</a> on <a href="https://unsplash.com/?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+- tree-decorations.jpg - Photo by <a href="https://unsplash.com/@frostroomhead?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Rodion Kutsaiev</a> on <a href="https://unsplash.com/?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+- bokeh-tree.jpg - Photo by <a href="https://unsplash.com/@mougrapher?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Mourad Saadi</a> on <a href="https://unsplash.com/?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+- christmas-lights.jpg - Photo by <a href="https://unsplash.com/@t_rampersad?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Tessa Rampersad</a> on <a href="https://unsplash.com/?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+- candy-cane.jpg - Photo by <a href="https://unsplash.com/@fluffmedia?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Deidre Schlabs</a> on <a href="https://unsplash.com/?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+- bokeh-ornament.jpg - Photo by <a href="https://unsplash.com/@ttrapani?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Todd Trapani</a> on <a href="https://unsplash.com/?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+- cones-and-cookies.jpg - Photo by <a href="https://unsplash.com/@natinati?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Nati Melnychuk</a> on <a href="https://unsplash.com/?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+- white-tree-decorations.jpg - Photo by <a href="https://unsplash.com/@daniloalvesd?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">danilo.alvesd</a> on <a href="https://unsplash.com/?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+- sugar-cookies.jpg - Photo by <a href="https://unsplash.com/@dilja96?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Diliara Garifullina</a> on <a href="https://unsplash.com/?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+- nutcracker.jpg - Photo by <a href="https://unsplash.com/es/@timmossholder?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Tim Mossholder</a> on <a href="https://unsplash.com/?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+- presents-under-tree.jpg - Photo by <a href="https://unsplash.com/@tinavanhove?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Tina Vanhove</a> on <a href="https://unsplash.com/?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+- candy-heart.jpg - Photo by <a href="https://unsplash.com/@lilartsy?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">lilartsy</a> on <a href="https://unsplash.com/?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+- doorway.jpg - Photo by <a href="https://unsplash.com/@sinzianasusa?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Sinziana Susa</a> on <a href="https://unsplash.com/?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+- snowy-cones.jpg - Photo by <a href="https://unsplash.com/@aaronburden?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Aaron Burden</a> on <a href="https://unsplash.com/?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
 
-2. We need to import a new function in our JS file called `createSnowfall`
+## Fonts
 
-```js
-import { createCardFlip, createSnowfall } from "/.there-be-dragons/sketch.js";
-
-createCardFlip();
-createSnowfall();
-```
-
-Now our card is finished! We can improve it with some more styling.
+- Caveat - https://fonts.google.com/specimen/Caveat/about
+- Mountains of Christmas - https://fonts.google.com/specimen/Mountains+of+Christmas/about

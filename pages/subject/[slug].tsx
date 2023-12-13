@@ -7,7 +7,7 @@ import { SubjectProps } from "../../types/subject";
 import Link from "next/link";
 import Logo from "../../components/Logo";
 import styles from "../../styles/SubjectCard.module.css";
-
+ 
 export default function SubjectPage(props: SubjectProps) {
     // console.log("Subject Page: ", props);
 
