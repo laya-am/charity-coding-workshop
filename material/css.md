@@ -1,22 +1,26 @@
 ---
 title: "CSS"
 date: "December 2022"
-excerpt: "What is CSS, and his syntax"
+excerpt: "What is CSS, and its syntax"
 cover_images: "/img/material/css.png"
 ---
 
 # What is CSS?
 
-CSS means Cascading Stylesheets. While HTML defines the structure and semantics of your content, we use CSS for design and layout.
+-   CSS means Cascading Stylesheets. While HTML defines the structure and semantics of your content, we use CSS for *design* and *layout*.
 
 -   Selector: A CSS selector is used to specify the elements to which CSS rules apply.
 -   Property: Name for a particular property to which a value is attributed.
 -   Value: The value we assign to a property.
 -   Declaration: Each pair of property and value is a declaration.
 
+<br>
+
 ![Css Syntax](../img/material/cssSyntax.png)
 
-Our selector can be:
+<br>
+
+-   Our selector can be:
 
 -   tag: `tagName`
 -   class: `.className`

@@ -6,20 +6,25 @@ import { SubjectInfo } from "../types/material";
 import styles from "../styles/SubjectCard.module.css";
 
 export default function SubjectCard(props: SubjectInfo) {
+    
     return (
-        <div className={styles.subject}>
+        <>
+        {props.slug !== "xmasCard" &&
+            <div className={styles.subject}>
             <Image
-                src={props.frontMatter.cover_images}
-                alt={props.slug}
-                width={100}
-                height={150}
-                className={styles.cardImg}
+            src={props.frontMatter.cover_images}
+            alt={props.slug}
+            width={100}
+            height={150}
+            className={styles.cardImg}
             ></Image>
             <h2>{props.frontMatter.title}</h2>
             <p>{props.frontMatter.excerpt}</p>
             <Link href={`/subject/${props.slug}`}>
-                <button className={styles.btn}>Read More</button>
+            <button className={styles.btn}>Read More</button>
             </Link>
-        </div>
+            </div>
+        }
+        </>
     );
 }
