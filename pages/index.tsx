@@ -124,7 +124,16 @@ export default function Home(props: HomeProps) {
                             <h2>Material &rarr;</h2>
                             <p>Find the workshop notes here.</p>
                         </Link>
-
+                        <Link
+                            href="https://codesandbox.io/p/sandbox/hot-choc-recipe-nxr888?file=%2Findex.html"
+                            target="_blank"
+                            className={styles.card}
+                        >
+                            <h2> Simple Recipe Page &rarr;</h2>
+                            <p>
+                                Here is a template to practice HTML &amp; CSS together
+                            </p>
+                        </Link>
                         <Link
                             href="https://codesandbox.io/p/sandbox/holiday-card-xndxhq"
                             target="_blank"
@@ -143,18 +152,6 @@ export default function Home(props: HomeProps) {
                         >
                             <h2>Holiday Card Guide &rarr;</h2>
                             <p>Steps to build your own Holiday Card</p>
-                        </Link>
-
-                        <Link
-                            href="https://www.spiced-academy.com/en"
-                            target="_blank"
-                            className={styles.card}
-                        >
-                            <h2>SPICED Academy &rarr;</h2>
-                            <p>
-                                Take a look at our website and the courses
-                                we offer.
-                            </p>
                         </Link>
                     </div>
                 </section>
